@@ -48,8 +48,8 @@ async def check_is_possible_to_change_amount(
     """Проверка на корректность изменения суммы сбора."""
     update_data = obj_in.dict(exclude_unset=True)
     if "full_amount" in update_data:
-        if (update_data["full_amount"] < charity_project.invested_amount
-                or update_data["full_amount"] is None):
+        if (update_data["full_amount"] < charity_project.invested_amount or
+                update_data["full_amount"] is None):
             raise HTTPException(
                 status_code=400,
                 detail="Нельзя установить требуемую сумму меньше вложенной")
