@@ -18,22 +18,22 @@ class CharityProjectUpdate(CharityProjectCreate):
     description: Optional[str]
     full_amount: Optional[PositiveInt]
 
-    @validator('name')
+    @validator("name")
     def validate_name(cls, value: str):
-        if value is None or value == '' or value == ' ':
-            raise ValueError('Недопустимое имя')
+        if value is None or value == "" or value == " ":
+            raise ValueError("Недопустимое имя")
         return value
 
-    @validator('description')
+    @validator("description")
     def validate_description(cls, value: str):
-        if value is None or value == '' or value == ' ':
-            raise ValueError('Недопустимое описание')
+        if value is None or value == "" or value == " ":
+            raise ValueError("Недопустимое описание")
         return value
 
-    @validator('full_amount')
+    @validator("full_amount")
     def validate_full_amount(cls, value: str):
-        if value is None or value == '':
-            raise ValueError('Недопустимая сумма')
+        if value is None or value == "":
+            raise ValueError("Недопустимая сумма")
         return value
 
 

@@ -14,11 +14,11 @@ router = APIRouter()
 
 
 @router.get(
-    '/donation/',
+    "/donation/",
     response_model=List[DonationDB],
     response_model_exclude_none=True,
     dependencies=[Depends(current_superuser)],
-    description='Получает список всех пожертвований.'
+    description="Получает список всех пожертвований."
 )
 async def get_all_donations(
         session: AsyncSession = Depends(get_async_session)):
@@ -28,10 +28,10 @@ async def get_all_donations(
 
 
 @router.post(
-    '/donation/',
+    "/donation/",
     response_model=UserDonation,
     response_model_exclude_none=True,
-    description='Сделать пожертвование.'
+    description="Сделать пожертвование."
 )
 async def create_donation(
     donation: DonationCreate,
@@ -44,10 +44,10 @@ async def create_donation(
 
 
 @router.get(
-    '/donation/my/',
+    "/donation/my/",
     response_model=List[UserDonation],
     response_model_exclude_none=True,
-    description='Получить список моих пожертвований.'
+    description="Получить список моих пожертвований."
 )
 async def get_user_donations(
     session: AsyncSession = Depends(get_async_session),

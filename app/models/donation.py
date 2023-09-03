@@ -7,5 +7,5 @@ from .abstract_model import AbstractModel
 
 class Donation(AbstractModel, Base):
     """Модель пожертвования."""
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey("user.id"))
     comment = Column(Text)
