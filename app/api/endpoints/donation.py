@@ -23,8 +23,7 @@ router = APIRouter()
 async def get_all_donations(
         session: AsyncSession = Depends(get_async_session)):
     """Только для суперюзеров."""
-    all_donations = await donation_crud.get_multi(session)
-    return all_donations
+    return await donation_crud.get_multi(session)
 
 
 @router.post(
@@ -53,6 +52,4 @@ async def get_user_donations(
     session: AsyncSession = Depends(get_async_session),
     user: User = Depends(current_user)
 ):
-    user_donations = await donation_crud.get_user_donations(
-        session=session, user=user)
-    return user_donations
+    return await donation_crud.get_user_donations(session=session, user=user)
